@@ -1,0 +1,62 @@
+.header {
+  align-items: baseline;
+  display: flex;
+  margin-left: 10px;
+}
+.menu {
+  width: 1000px;
+}
+
+.liste {
+  width: 1000px;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 14px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: capitalize;
+}
+
+.menu {
+  display: flex;
+}
+
+.button--loginJoin {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  overflow: visible;
+  text-transform: none;
+  border: none;
+  height: 50px;
+  width: 100;
+  border-radius: 40%;
+  font: inherit;
+  -webkit-appearance: button;
+  cursor: pointer;
+  outline: 0;
+  transition-duration: 0.4s;
+}
+
+.buttonAddListing {
+  background-color: #ffffff;
+  color: #9069cd;
+  border: 2px solid #9069cd;
+  font-size: 16px;
+  margin: 20px 20px 0px 0px;
+  padding: 11px 13px;
+  width: 114.95px;
+}
+
+.buttonLoginJoin {
+  background-color: #9069cd;
+  color: #ffffff;
+  border: 2px solid #9069cd;
+  font-size: 16px;
+  margin: 20px 20px 0px 0px;
+  padding: 11px 13px;
+  width: 114.95px;
+}
