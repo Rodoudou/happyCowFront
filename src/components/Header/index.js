@@ -10,12 +10,14 @@ export default function Header() {
     <div className="container">
       <div className="header">
         {/*         <div className="logo"> */}
-        <img
-          id="logo"
-          src={logo}
-          alt="logo"
-          style={{ height: 48.95, width: 220 }}
-        />
+        <Link to="/">
+          <img
+            id="logo"
+            src={logo}
+            alt="logo"
+            style={{ height: 48.95, width: 220 }}
+          />
+        </Link>
         {/*  </div> */}
         <div className="menu">
           <div className="liste">

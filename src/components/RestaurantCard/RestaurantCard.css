@@ -1,0 +1,19 @@
+.iconStar > icon {
+  background-color: yellow;
+}
+.restaurants--cards > img {
+  height: 176px;
+  border-radius: 10px;
+  width: 246px;
+}
+
+.content {
+  display: flex;
+
+  /* scroll horizontal */
+  overflow-x: auto;
+}
+
+.restaurants--cards {
+  margin: 0px 10px 50px;
+}
