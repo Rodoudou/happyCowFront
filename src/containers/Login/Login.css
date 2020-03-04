@@ -1,0 +1,36 @@
+.login-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  height: 200px;
+  padding-bottom: 50px;
+}
+input {
+  height: 38px;
+  width: 227px;
+  border-radius: 30px;
+}
+
+.flexForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.line--horizontal:after {
+  content: "";
+  background: #eee;
+  margin-bottom: 0;
+  margin-top: 0;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.line {
+  display: block;
+  position: relative;
+  height: 30px;
+}

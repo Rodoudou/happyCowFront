@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Carousel, { Dots } from "@brainhubeu/react-carousel";
+import React from "react";
+
 import "./Home.css";
 import RestaurantCard from "../../components/RestaurantCard";
 

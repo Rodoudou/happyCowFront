@@ -30,19 +30,26 @@ export default function Header() {
               Restaurants & Stores
             </Link>
             <Link style={{ textDecoration: "none", color: "#666" }}>
-              Veg Topics
+              <span>Veg Topics</span>
             </Link>
             <Link style={{ textDecoration: "none", color: "#666" }}>
-              Recipes
+              <span>Recipes</span>
             </Link>
-            <Link style={{ textDecoration: "none", color: "#666" }}>Blog</Link>
             <Link style={{ textDecoration: "none", color: "#666" }}>
-              Support
+              <span>Blog</span>
+            </Link>
+            <Link style={{ textDecoration: "none", color: "#666" }}>
+              <span>Support</span>
             </Link>
           </div>
           <div className="button--loginJoin">
-            <button className="buttonAddListing">Add Listing</button>
-            <button className="buttonLoginJoin">Login/Join</button>
+            <Link>
+              <button className="buttonAddListing">Add Listing</button>
+            </Link>
+
+            <Link to="/log_in/">
+              <button className="buttonLoginJoin">Login/Join</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -68,7 +75,7 @@ export default function Header() {
               id="inputHeader"
               style={{ position: "relative" }}
               type="text"
-              placeholder="RECHERCHER"
+              placeholder="Rechercher"
             />
           </span>
           <button>Search</button>

@@ -1,36 +1,42 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./Restaurant.css";
 import { useParams } from "react-router-dom";
 
 export default function Restaurant() {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState();
+  const [datas, setDatas] = useState();
 
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       console.log("1");
-      const response = await axios.get(
-        ` https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json?placeId=${id}`
-      );
-      console.log("2");
-      setData(response.data);
-      setIsLoading(false);
+      try {
+        const response = await axios.get(
+          `https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json/${id}`
+        );
+        console.log("2");
+        setDatas(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
     };
-
     fetchData();
   }, [id]);
   console.log("id", id);
   return (
     <div>
       {isLoading === true ? (
-        <p>En cours de chargement ...</p>
+        <div>En cours de chargement ...</div>
       ) : (
-        <div style={{ backgroundColor: "tomato", height: 50, width: 100 }}>
-          <div className="header"></div>
-          {console.log("data=3", data)}
-          <span>{data.id}</span>
+        <div style={{ backgroundColor: "tomato", height: 80, width: 120 }}>
+          {datas.thumbnail ? (
+            <img src={datas.thumbnail} alt="restaurant" />
+          ) : (
+            <span>Pas de photo</span>
+          )}
         </div>
       )}
     </div>

@@ -6,7 +6,7 @@ body {
 .header {
   align-items: baseline;
   display: flex;
-
+  /*   justify-content: space-between; */
   border-bottom: 20px solid #7c4ec4;
   background-color: #fff;
   box-sizing: border-box;

@@ -1,6 +1,5 @@
-.header {
-  align-items: baseline;
-  display: flex;
-  background-color: #fff;
-  box-sizing: border-box;
+.resto {
+  background-color: "tomato";
+  height: 80;
+  width: 120;
 }
