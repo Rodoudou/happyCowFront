@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-
 import "./Login.css";
 
 export default function Login({ onLogin }) {
@@ -12,7 +11,7 @@ export default function Login({ onLogin }) {
   const handleLoginSubmit = async e => {
     try {
       e.preventDefault();
-      const response = await axios.post("", {
+      const response = await axios.post("http://localhost:3000/log_in", {
         email: email,
         password: password
       });
@@ -26,28 +25,24 @@ export default function Login({ onLogin }) {
   };
 
   return (
-    <div>
+    <div className="content">
+      <h3 className="title"> Login to Your Account</h3>
       <div className="login-card">
-        <div className="title">CONNEXION</div>
-        <form onSubmit={handleLoginSubmit}>
-          <p>Adresse email</p>
-          <input type="text" onChange={e => setEmail(e.target.value)} />
-          <p>Mot de passe</p>
+        <form className="form" onSubmit={handleLoginSubmit}>
+          <input
+            placeholder="Adresse email"
+            type="text"
+            onChange={e => setEmail(e.target.value)}
+          />
+
           <div className="flexForm">
             <input
-              style={{ marginBottom: 10 }}
+              className="email-input"
+              placeholder="password"
               type="password"
               onChange={e => setPassword(e.target.value)}
             />
-            <input
-              style={{
-                backgroundColor: "#7C4EC4",
-                color: "white",
-                border: "none"
-              }}
-              value="Login"
-              type="submit"
-            />
+            <input className="login-input" value="Login" type="submit" />
           </div>
 
           {/*  <div class="line mt--2 mb--1">
@@ -57,11 +52,7 @@ export default function Login({ onLogin }) {
 
           <p className="no-account">Vous n'avez pas de compte ?</p>
           <input
-            style={{
-              backgroundColor: "#333333",
-              color: "white",
-              border: "none"
-            }}
+            className="register-input"
             onClick={() => history.push("/sign_up")}
             value="Register"
             type="button"

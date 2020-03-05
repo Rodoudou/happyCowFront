@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
 import imgBackground from "../../assets/img/headerImg.jpg";
-
 import "./Header.css";
 
 export default function Header() {
@@ -44,11 +43,19 @@ export default function Header() {
           </div>
           <div className="button--loginJoin">
             <Link>
-              <button className="buttonAddListing">Add Listing</button>
+              <input
+                className="buttonAddListing"
+                type="button"
+                value="Add Listing"
+              />
             </Link>
 
             <Link to="/log_in/">
-              <button className="buttonLoginJoin">Login/Join</button>
+              <input
+                className="buttonLoginJoin"
+                value="Login/Join"
+                type="button"
+              />
             </Link>
           </div>
         </div>

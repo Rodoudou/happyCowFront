@@ -5,12 +5,53 @@
   align-items: center;
   padding-top: 50px;
   height: 200px;
-  padding-bottom: 50px;
+  padding-bottom: 160px;
+  margin-top: 30px;
 }
-input {
+
+/* .title {
+  font-size: 24px;
+  line-height: 1em;
+  font-weight: 800;
+  color: #444;
+  font-family: "Nunito", sans-serif;
+  margin-left: 0px;
+} */
+
+.email-input {
+  margin-bottom: 10;
   height: 38px;
-  width: 227px;
+  width: 223px;
   border-radius: 30px;
+}
+.login-input {
+  background-color: #7c4ec4;
+  color: white;
+  font-weight: bold;
+  width: 227;
+  height: 38px;
+  width: 223px;
+  border-radius: 30px;
+  border: none;
+}
+
+.register-input {
+  background-color: #333333;
+  color: white;
+  font-weight: bold;
+  border: none;
+  width: 227;
+  height: 38px;
+  width: 223px;
+  border-radius: 30px;
+}
+
+p {
+  line-height: 1.5em;
+  color: #444;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .flexForm {
@@ -28,9 +69,20 @@ input {
   left: 0;
   width: 100%;
 }
-
+.form {
+  margin-top: 100px;
+}
 .line {
   display: block;
   position: relative;
   height: 30px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.no-account {
+  margin: 10px 10px;
 }

@@ -1,0 +1,48 @@
+.signup-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  height: 200px;
+  padding-bottom: 110px;
+  margin-top: 20px;
+}
+/* .title {
+  margin-top: 50px;
+  font-size: 24px;
+  line-height: 1em;
+  font-weight: 800;
+  color: #444;
+  font-family: "Nunito", sans-serif;
+} */
+
+.form {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+input {
+  height: 38px;
+  width: 227px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+p {
+  line-height: 1.5em;
+  color: tomato;
+  font-family: "Nunito", sans-serif;
+  font-size: 90px;
+  cursor: pointer;
+}
+
+.creat_compte {
+  margin-top: 10px;
+  background-color: #808080;
+  color: #ffffff;
+  border: none;
+  font-family: Regular;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Cookies from "js-cookie";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -15,8 +16,27 @@ import "./App.css";
 library.add(faStar);
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [datas, setDatas] = useState({});
+
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [username, setUsername] = useState(Cookies.get("username") || "");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json`
+        );
+        /*         console.log("response.data dans App =>", response.data); */
+        setDatas(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log("error.message =>", error.message);
+      }
+    };
+    fetchData();
+  }, []);
 
   const onLogin = (token, username) => {
     setToken(token);
@@ -29,10 +49,20 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            datas={datas}
+            setDatas={setDatas}
+          />
         </Route>
         <Route path="/restaurant/:id">
-          <Restaurant />
+          <Restaurant
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+            datas={datas}
+            setDatas={setDatas}
+          />
         </Route>
         <Route path="/log_in/">
           <Login onLogin={onLogin} />

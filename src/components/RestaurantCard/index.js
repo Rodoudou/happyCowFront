@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import Card from "../../components/Card";
-import "./RestaurantCard.css";
-export default function RestaurantCard() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [datas, setDatas] = useState({});
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json`
-      );
-      console.log(response.data);
-      setDatas(response.data);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
+import "./RestaurantCard.css";
+export default function RestaurantCard({
+  isLoading,
+  setIsLoading,
+  datas,
+  setDatas
+}) {
+  console.log(datas);
   return (
     <div>
       {isLoading ? (

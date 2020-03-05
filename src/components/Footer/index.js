@@ -4,7 +4,7 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <div className="footer">
-      <ul className="list">
+      {/*   <ul className="list">
         <li>
           <a>Privacy Policy</a>
         </li>
@@ -17,9 +17,9 @@ export default function Footer() {
         <li>
           <a>Support HappyCow</a>
         </li>
-      </ul>
+      </ul> */}
 
-      <p>Create by Readouane Amrany by React in 2020</p>
+      <p>Create by Redouane Amrani with React in March 2020</p>
     </div>
   );
 }

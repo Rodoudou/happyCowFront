@@ -1,12 +1,21 @@
 .content {
-  /*   display: flex;
-  flex-direction: column; */
   margin-top: 14px;
-
-  /*   background-color: salmon; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 350px;
 }
 
 .body {
   display: flex;
   flex-direction: column;
+  margin: auto;
+}
+
+.title {
+  position: relative;
+  color: #444444;
+  font-size: 30px;
+  margin-bottom: 60px;
+  margin-left: 10px;
 }

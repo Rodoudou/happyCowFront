@@ -1,42 +1,53 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Restaurant.css";
+
 import { useParams } from "react-router-dom";
-
-export default function Restaurant() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [datas, setDatas] = useState();
-
+import "./Restaurant.css";
+export default function Restaurant({
+  isLoading,
+  setIsLoading,
+  datas,
+  setDatas
+}) {
   const { id } = useParams();
+  const [singleData, setSingleData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log("1");
       try {
         const response = await axios.get(
-          `https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json/${id}`
+          `https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json`
         );
-        console.log("2");
-        setDatas(response.data);
+
+        for (let i = 0; i < response.data.length; i++) {
+          if (String(response.data[i].placeId) === id) {
+            /*          console.log("ici ", response.data[i]); */
+            setSingleData(response.data[i]);
+          }
+        }
         setIsLoading(false);
       } catch (error) {
-        console.log(error.message);
+        console.log("error.message =>", error.message);
       }
     };
     fetchData();
   }, [id]);
-  console.log("id", id);
+
   return (
     <div>
-      {isLoading === true ? (
+      {/*  {console.log("datas Restaurant lol=>", datas)} */}
+      {isLoading ? (
         <div>En cours de chargement ...</div>
       ) : (
-        <div style={{ backgroundColor: "tomato", height: 80, width: 120 }}>
-          {datas.thumbnail ? (
-            <img src={datas.thumbnail} alt="restaurant" />
-          ) : (
-            <span>Pas de photo</span>
-          )}
+        <div
+          className="restoCard"
+          style={{ backgroundColor: "tomato", height: 80, width: 120 }}
+        >
+          <img src={singleData.thumbnail} alt={singleData.name} />
+          <p style={{ color: "black", fontWeight: "bold" }}>
+            {singleData.name}
+          </p>
+          <span className="address">{singleData.address}</span>
         </div>
       )}
     </div>
