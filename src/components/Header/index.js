@@ -1,14 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import Search from "../Search";
+import { Link, useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../../assets/img/logo.svg";
 import imgBackground from "../../assets/img/headerImg.jpg";
+
+import Cookies from "js-cookie";
+
+import { ButtonToolbar, Button } from "react-bootstrap";
 import "./Header.css";
 
-export default function Header() {
+export default function Header({ token, setToken, username }) {
+  const [searchFocus, setSearchFocus] = useState(false);
+  const history = useHistory();
   return (
     <div className="container">
       <div className="header">
-        {/*         <div className="logo"> */}
         <Link to="/">
           <img
             id="logo"
@@ -17,7 +24,7 @@ export default function Header() {
             style={{ height: 48.95, width: 220 }}
           />
         </Link>
-        {/*  </div> */}
+
         <div className="menu">
           <div className="liste">
             <Link
@@ -41,22 +48,36 @@ export default function Header() {
               <span>Support</span>
             </Link>
           </div>
-          <div className="button--loginJoin">
-            <Link>
-              <input
-                className="buttonAddListing"
-                type="button"
-                value="Add Listing"
-              />
-            </Link>
-
-            <Link to="/log_in/">
-              <input
-                className="buttonLoginJoin"
-                value="Login/Join"
-                type="button"
-              />
-            </Link>
+          <div>
+            {!token ? (
+              <Link
+                onFocus={() => setSearchFocus(false)}
+                className="Link login"
+                to="/log_in"
+              >
+                <ButtonToolbar>
+                  <Button className="buttonLoginJoin" variant="primary">
+                    Login
+                  </Button>
+                </ButtonToolbar>
+              </Link>
+            ) : (
+              <div
+                onClick={() => {
+                  setToken(null);
+                  Cookies.remove("token");
+                  Cookies.remove("username");
+                  history.push("/");
+                }}
+                onFocus={() => setSearchFocus(false)}
+                className="Link login"
+              >
+                <div className="user-offer-button">
+                  <p>{username}</p>
+                  Se déconnecter
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -77,6 +98,7 @@ export default function Header() {
           <div style={{ textAlign: "center" }}>
             <h1 style={{ fontSize: 36 }}>Find Vegan Restaurants Nearby</h1>
           </div>
+          {/*  <Search /> */}
           <span className="inputSearchHeader">
             <input
               id="inputHeader"
@@ -85,7 +107,6 @@ export default function Header() {
               placeholder="Rechercher"
             />
           </span>
-          <button>Search</button>
         </div>
       </div>
     </div>

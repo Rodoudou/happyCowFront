@@ -1,6 +1,5 @@
 .footer {
   display: flex;
-  flex: 1;
   justify-content: center;
   align-items: center;
 
@@ -12,6 +11,7 @@
   color: #fff;
   border-top: 1px solid #e1e1e1;
   box-sizing: border-box;
+  margin-top: 200px;
 }
 
 ul {

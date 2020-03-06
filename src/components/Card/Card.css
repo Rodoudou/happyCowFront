@@ -12,6 +12,7 @@
   height: 330px;
   width: 300px;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .restaurants--cards {

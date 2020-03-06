@@ -34,20 +34,17 @@ export default function Restaurant({
   }, [id]);
 
   return (
-    <div>
+    <div className="container">
       {/*  {console.log("datas Restaurant lol=>", datas)} */}
       {isLoading ? (
         <div>En cours de chargement ...</div>
       ) : (
-        <div
-          className="restoCard"
-          style={{ backgroundColor: "tomato", height: 80, width: 120 }}
-        >
+        <div className="restoCard">
           <img src={singleData.thumbnail} alt={singleData.name} />
           <p style={{ color: "black", fontWeight: "bold" }}>
             {singleData.name}
           </p>
-          <span className="address">{singleData.address}</span>
+          <p className="address">{singleData.address}</p>
         </div>
       )}
     </div>

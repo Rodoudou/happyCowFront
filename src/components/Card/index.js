@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Card.css";
 export default function Card({ data }) {
-  /*   console.log("ici Id dans Card===>", data.placeId); */
-
+  // here the best restaurants with 5 stars
   return (
     <Link to={`/restaurant/${data.placeId}`} className="card">
       <div key={data.placeId} className="restaurants--cards">

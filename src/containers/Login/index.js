@@ -11,10 +11,11 @@ export default function Login({ onLogin }) {
   const handleLoginSubmit = async e => {
     try {
       e.preventDefault();
-      const response = await axios.post("http://localhost:3000/log_in", {
+      const response = await axios.post("http://localhost:8000/user/log_in", {
         email: email,
         password: password
       });
+      console.log("kikou", email, password);
       if (response.data.token) {
         onLogin(response.data.token, response.data.account.username);
         history.push("/");
@@ -25,7 +26,7 @@ export default function Login({ onLogin }) {
   };
 
   return (
-    <div className="content">
+    <div className="content-login">
       <h3 className="title"> Login to Your Account</h3>
       <div className="login-card">
         <form className="form" onSubmit={handleLoginSubmit}>
@@ -44,11 +45,6 @@ export default function Login({ onLogin }) {
             />
             <input className="login-input" value="Login" type="submit" />
           </div>
-
-          {/*  <div class="line mt--2 mb--1">
-            <div class="line--horizontal"></div>
-            <div class="line__text">OR</div>
-          </div> */}
 
           <p className="no-account">Vous n'avez pas de compte ?</p>
           <input

@@ -8,26 +8,27 @@ export default function SignUp({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [checkbox, setCheckbox] = useState(false);
 
   const history = useHistory();
 
   const handleSignupSubmit = async e => {
     try {
       e.preventDefault();
-      if (!username || !email || !password || !confirmPassword || !checkbox) {
+      if (!username || !email || !password || !confirmPassword) {
         alert("Veuillez remplir tous les champs");
       } else if (password !== confirmPassword) {
         alert("Vos mots de passe ne sont pas identiques");
-      } else if (!checkbox) {
-        alert("Veuillez accepter les CGV et CGU");
       } else {
-        const response = await axios.post("http://localhost:3000/sign_up", {
-          email: email,
-          username: username,
-          password: password
-        });
-        // console.log(response.data);
+        const response = await axios.post(
+          "http://localhost:8000/user/sign_up",
+          {
+            email: email,
+            username: username,
+            password: password
+            /*  confirmPassword: confirmPassword */
+          }
+        );
+        console.log(response.data);
 
         if (response.data.token) {
           onLogin(response.data.token, response.data.account.username);
@@ -41,6 +42,7 @@ export default function SignUp({ onLogin }) {
 
   return (
     <div
+      className="content-signup"
       style={{
         display: "flex",
         justifyContent: "center"
@@ -48,7 +50,7 @@ export default function SignUp({ onLogin }) {
     >
       <div className="title">CRÉER UN COMPTE</div>
       <div className="signup-card">
-        <form className="form" onSubmit={handleSignupSubmit}>
+        <form className="form-SignUp" onSubmit={handleSignupSubmit}>
           <input
             type="text"
             placeholder="Pseudo *"

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 import Home from "./containers/Home";
 import Header from "./components/Header";
@@ -13,7 +11,10 @@ import Restaurant from "./containers/Restaurant";
 import SignUp from "./containers/SignUp";
 import Login from "./containers/Login";
 import "./App.css";
-library.add(faStar);
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faStar, faUser } from "@fortawesome/free-solid-svg-icons";
+library.add(faStar, faUser);
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,7 +47,7 @@ function App() {
   };
   return (
     <Router>
-      <Header />
+      <Header setToken={setToken} token={token} username={username} />
       <Switch>
         <Route exact path="/">
           <Home
