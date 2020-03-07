@@ -5,7 +5,11 @@ import "./Card.css";
 export default function Card({ data }) {
   // here the best restaurants with 5 stars
   return (
-    <Link to={`/restaurant/${data.placeId}`} className="card">
+    <Link
+      to={`/restaurant/${data.placeId}`}
+      className="card"
+      style={{ textDecoration: "none" }}
+    >
       <div key={data.placeId} className="restaurants--cards">
         <img src={data.thumbnail} alt={data.name} />
         <p style={{ color: "black", fontWeight: "bold" }}>{data.name}</p>

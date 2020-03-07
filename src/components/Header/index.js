@@ -47,37 +47,45 @@ export default function Header({ token, setToken, username }) {
             <Link style={{ textDecoration: "none", color: "#666" }}>
               <span>Support</span>
             </Link>
-          </div>
-          <div>
-            {!token ? (
-              <Link
-                onFocus={() => setSearchFocus(false)}
-                className="Link login"
-                to="/log_in"
-              >
-                <ButtonToolbar>
-                  <Button className="buttonLoginJoin" variant="primary">
-                    Login
-                  </Button>
-                </ButtonToolbar>
-              </Link>
-            ) : (
-              <div
-                onClick={() => {
-                  setToken(null);
-                  Cookies.remove("token");
-                  Cookies.remove("username");
-                  history.push("/");
-                }}
-                onFocus={() => setSearchFocus(false)}
-                className="Link login"
-              >
-                <div className="user-offer-button">
-                  <p>{username}</p>
-                  Se déconnecter
+
+            <div>
+              {!token ? (
+                <Link
+                  onFocus={() => setSearchFocus(false)}
+                  className="Link login"
+                  to="/log_in"
+                >
+                  <ButtonToolbar>
+                    <Button className="buttonLoginJoin" variant="primary">
+                      Login
+                    </Button>
+                  </ButtonToolbar>
+                </Link>
+              ) : (
+                <div
+                  onClick={() => {
+                    setToken(null);
+                    Cookies.remove("token");
+                    Cookies.remove("username");
+                    history.push("/");
+                  }}
+                  onFocus={() => setSearchFocus(false)}
+                  className="Link login"
+                >
+                  <div className="user-offer-button">
+                    <p>
+                      <span>User: </span>
+                      {username}
+                    </p>
+                    <ButtonToolbar>
+                      <Button className="buttonLoginJoin" variant="primary">
+                        Log out
+                      </Button>
+                    </ButtonToolbar>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

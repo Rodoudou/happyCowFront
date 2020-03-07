@@ -29,3 +29,7 @@
 .restaurants--cards {
   margin: 0px 10px 50px;
 }
+
+a:hover {
+  color: black;
+}

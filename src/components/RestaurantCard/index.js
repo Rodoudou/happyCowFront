@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+
+import { Carousel } from "react-bootstrap";
 import Card from "../../components/Card";
 
 import "./RestaurantCard.css";
@@ -17,6 +18,7 @@ export default function RestaurantCard({
       ) : (
         <div className="content">
           {console.log("datas restaurantCard=>", datas)}
+
           {datas.map((data, index) => (
             <div key={data.placeId}>
               {data.rating === 5 ? (

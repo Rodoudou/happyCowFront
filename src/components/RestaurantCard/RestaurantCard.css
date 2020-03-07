@@ -3,6 +3,6 @@
 }
 
 /* enlever la barre de scrolle */
-.content::-webkit-scrollbar {
+/* .content::-webkit-scrollbar {
   display: none;
-}
+} */
