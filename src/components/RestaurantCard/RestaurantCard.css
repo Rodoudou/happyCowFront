@@ -1,6 +1,10 @@
 .content {
   overflow-x: auto;
 }
+.leaflet-container {
+  height: 450px;
+  width: 450px;
+}
 
 /* enlever la barre de scrolle */
 /* .content::-webkit-scrollbar {

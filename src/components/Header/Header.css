@@ -16,21 +16,22 @@ body {
 
 #logo {
   margin: 9px 31px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
 .menu {
   display: flex;
   justify-content: center;
-
+  margin-bottom: 100px;
   width: 1000px;
 }
 
 .liste {
-  width: 1000px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
 
   padding: 40px 14px;
+
   font-size: 16px;
   font-weight: bold;
   line-height: 20px;

@@ -13,15 +13,21 @@ import Login from "./containers/Login";
 import "./App.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faStar, faUser } from "@fortawesome/free-solid-svg-icons";
-library.add(faStar, faUser);
+import { faStar, faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
+library.add(faStar, faUser, faSearch);
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [datas, setDatas] = useState({});
-
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [username, setUsername] = useState(Cookies.get("username") || "");
+
+  const onLogin = (token, username) => {
+    setToken(token);
+    setUsername(username);
+    Cookies.set("token", token);
+    Cookies.set("username", username);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,12 +45,6 @@ function App() {
     fetchData();
   }, []);
 
-  const onLogin = (token, username) => {
-    setToken(token);
-    setUsername(username);
-    Cookies.set("token", token);
-    Cookies.set("username", username);
-  };
   return (
     <Router>
       <Header setToken={setToken} token={token} username={username} />

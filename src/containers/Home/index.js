@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import Map from "../../components/Map";
 import "./Home.css";
 import RestaurantCard from "../../components/RestaurantCard";
 

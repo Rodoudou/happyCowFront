@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Search from "../Search";
 import { Link, useHistory } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Cookies from "js-cookie";
 import logo from "../../assets/img/logo.svg";
 import imgBackground from "../../assets/img/headerImg.jpg";
-
-import Cookies from "js-cookie";
 
 import { ButtonToolbar, Button } from "react-bootstrap";
 import "./Header.css";
@@ -16,16 +14,15 @@ export default function Header({ token, setToken, username }) {
   return (
     <div className="container">
       <div className="header">
-        <Link to="/">
-          <img
-            id="logo"
-            src={logo}
-            alt="logo"
-            style={{ height: 48.95, width: 220 }}
-          />
-        </Link>
-
         <div className="menu">
+          <Link to="/">
+            <img
+              id="logo"
+              src={logo}
+              alt="logo"
+              style={{ height: 48.95, width: 220 }}
+            />
+          </Link>
           <div className="liste">
             <Link
               style={{
@@ -73,9 +70,12 @@ export default function Header({ token, setToken, username }) {
                   className="Link login"
                 >
                   <div className="user-offer-button">
-                    <p>
-                      <span>User: </span>
-                      {username}
+                    <p
+                      style={{
+                        display: "flex"
+                      }}
+                    >
+                      <span>User: {username} </span>
                     </p>
                     <ButtonToolbar>
                       <Button className="buttonLoginJoin" variant="primary">
@@ -106,14 +106,15 @@ export default function Header({ token, setToken, username }) {
           <div style={{ textAlign: "center" }}>
             <h1 style={{ fontSize: 36 }}>Find Vegan Restaurants Nearby</h1>
           </div>
-          {/*  <Search /> */}
+
           <span className="inputSearchHeader">
-            <input
+            <Search />
+            {/* <input
               id="inputHeader"
               style={{ position: "relative" }}
               type="text"
               placeholder="Rechercher"
-            />
+            /> */}
           </span>
         </div>
       </div>

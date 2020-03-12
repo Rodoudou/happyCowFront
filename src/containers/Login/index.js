@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import Cookies from "js-cookie";
 import "./Login.css";
 
 export default function Login({ onLogin }) {
+  /*   console.log("user in login", user);
+  console.log("SetUser in login", setUser); */
+
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory();
 
   const handleLoginSubmit = async e => {
     try {
@@ -15,7 +19,7 @@ export default function Login({ onLogin }) {
         email: email,
         password: password
       });
-      console.log("kikou", email, password);
+      console.log("response.data in login", response.data);
       if (response.data.token) {
         onLogin(response.data.token, response.data.account.username);
         history.push("/");
@@ -27,30 +31,33 @@ export default function Login({ onLogin }) {
 
   return (
     <div className="content-login">
-      <h3 className="title"> Login to Your Account</h3>
+      <h2 className="title"> Login to Your Account</h2>
       <div className="login-card">
         <form className="form" onSubmit={handleLoginSubmit}>
           <input
             placeholder="Adresse email"
-            type="text"
+            type="email"
+            value={email}
             onChange={e => setEmail(e.target.value)}
           />
 
           <div className="flexForm">
             <input
-              className="email-input"
+              className="password-input"
               placeholder="password"
               type="password"
+              value={password}
               onChange={e => setPassword(e.target.value)}
             />
             <input className="login-input" value="Login" type="submit" />
           </div>
-
+          <hr className="separateur--bas" />
           <p className="no-account">Vous n'avez pas de compte ?</p>
+
           <input
             className="register-input"
             onClick={() => history.push("/sign_up")}
-            value="Register"
+            value="Créer un compte"
             type="button"
           />
         </form>

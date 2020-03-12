@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-
+import "./Search.css";
 export default function Search({ setDatas }) {
   const [searchInput, setSearchInput] = useState("");
   const handleSubmit = async e => {
     e.preventDefault();
-    const response = await axios.get(`http://localhost:3000/${searchInput}`);
+    const response = await axios.get(
+      `http://localhost:8000/user/search/?userSearch=${searchInput}`
+    );
     setDatas(response.data);
+    console.log(searchInput);
+    console.log("response.data in Search=>", response.data);
   };
   return (
     <div className="search-container">
@@ -18,6 +22,7 @@ export default function Search({ setDatas }) {
         <form onSubmit={handleSubmit}>
           <div className="search-input">
             <input
+              id="inputSearch"
               onChange={e => setSearchInput(e.target.value)}
               placeholder="Que recherchez-vous ?"
               type="text"
@@ -28,8 +33,8 @@ export default function Search({ setDatas }) {
               size="1x"
             />
           </div>
-
-          <input type="submit" value="Rechercher" name="search" />
+          {/*           <input type="submit" value="Rechercher" name="search" />
+           */}
         </form>
       </div>
     </div>

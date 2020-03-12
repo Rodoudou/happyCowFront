@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+
 import { useHistory } from "react-router-dom";
 import "./SignUp.css";
 
@@ -25,10 +26,9 @@ export default function SignUp({ onLogin }) {
             email: email,
             username: username,
             password: password
-            /*  confirmPassword: confirmPassword */
           }
         );
-        console.log(response.data);
+        // console.log(response.data);
 
         if (response.data.token) {
           onLogin(response.data.token, response.data.account.username);
